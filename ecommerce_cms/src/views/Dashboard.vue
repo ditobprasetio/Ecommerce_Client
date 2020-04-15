@@ -1,15 +1,19 @@
 <template>
   <div>
-    <h1>Dashboard</h1>
+    <Navbar />
+    <router-view />
   </div>
 </template>
 
 <script>
+import Navbar from '../components/NavBar'
 export default {
-  name: 'Dashboard'
+  name: 'dashboard',
+  components: {
+    Navbar
+  }
 }
 </script>
 
 <style>
-
 </style>

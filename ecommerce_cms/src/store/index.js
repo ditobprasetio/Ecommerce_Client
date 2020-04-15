@@ -15,7 +15,18 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    logout (context) {
+    signin (context, payload) {
+      const email = payload.email
+      const password = payload.password
+      return axios({
+        method: 'POST',
+        url: 'http://localhost:3000/admin/signin',
+        data: {
+          email, password
+        }
+      })
+    },
+    signout (context) {
       localStorage.clear()
       router.push({ path: '/' })
     }

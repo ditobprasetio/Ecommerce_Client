@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import SignIn from '../views/SigninPage.vue'
-import SignUp from '../views/SignupPage.vue'
 import Dashboard from '../views/Dashboard.vue'
+import UploadPage from '../views/UploadPage.vue'
 
 Vue.use(VueRouter)
 
@@ -22,14 +22,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/signup',
-    name: 'SignUp',
-    component: SignUp,
-    meta: {
-      requiresSignout: true
-    }
-  },
-  {
     path: '/signin',
     name: 'SignIn',
     component: SignIn,
@@ -37,11 +29,17 @@ const routes = [
       requiresSignout: true
     }
   },
-  ,
   {
     path: '/product',
     name: 'Dashboard',
     component: Dashboard,
+    children: [
+      {
+        path: 'add',
+        name: 'uploadPage',
+        component: UploadPage
+      }
+    ],
     meta: {
       requiresAuth: true
     }

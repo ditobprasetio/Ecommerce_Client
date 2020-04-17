@@ -3,7 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import SignIn from '../views/SigninPage.vue'
 import Dashboard from '../views/Dashboard.vue'
+import ProductList from '../views/ProductList.vue'
 import UploadPage from '../views/UploadPage.vue'
+import UpdatePage from '../views/UpdatePage.vue'
 
 Vue.use(VueRouter)
 
@@ -31,13 +33,22 @@ const routes = [
   },
   {
     path: '/product',
-    name: 'Dashboard',
     component: Dashboard,
     children: [
+      {
+        path: '',
+        name: 'ProductList',
+        component: ProductList
+      },
       {
         path: 'add',
         name: 'uploadPage',
         component: UploadPage
+      },
+      {
+        path: 'edit/:id',
+        name: 'updatePage',
+        component: UpdatePage
       }
     ],
     meta: {

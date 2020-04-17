@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-12 image">
+      <div class="col-md-6 col-sm-12 col-xs-12 image">
         <div class="color">
           <div class="color-one"></div>
           <div class="color-two"></div>
@@ -10,7 +10,7 @@
           <img src="../assets/cats.jpg" alt="">
         </div>
       </div>
-      <div class="col-md-6 col-sm-6 col-xs-12 desc">
+      <div class="col-md-6 col-sm-12 col-xs-12 desc">
         <div class="options">
           <router-link class="product" to="/product">All Product</router-link>
           <router-link class="signin" to="/signin">Sign In</router-link>
@@ -21,9 +21,9 @@
             As every cat owner knows,<br>
             nobody owns a cat.
           </h1>
-          <!-- <p>
+          <p>
             Working and being a cat parent can be a bit tough. Our little furry kids not only demand attention but they have endless needs. Neko Pawrtal provides the best cat supplies online. We offer quality products and accessories for a healthier, happier, fluffier cat. We deliver your products right to your doorstep. Pawsome isn’t it?
-          </p> -->
+          </p>
         </div>
       </div>
     </div>
@@ -129,23 +129,37 @@ img{
   text-decoration: none;
 }
 
-.intro{
+/* .intro{
   display: flex;
   justify-content: flex-start;
   height: 90%;
   padding: 10px;
   align-items: center;
+} */
+
+.intro{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90%;
+  padding: 10px;
+  align-content: flex-start;
 }
 
 .intro h1{
   text-align: left;
   font-weight: 500;
   color: #5a5a5a;
+  margin-bottom: 20px;
 }
 
 .intro h1 span{
   font-weight: 600;
   font-size: 50px;
   color: #fe6c6c;
+}
+
+.intro p {
+  text-align: left;
 }
 </style>

@@ -1,16 +1,16 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-white rounded">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <router-link to="/" class="navbar-brand">
         <img src="../assets/icn.png" />
       </router-link>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 justify-content-center">
-          <li class="nav-item active">
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <ul class="navbar-nav mr-auto mt-4 mt-lg-0 justify-content-center">
+          <li>
             <router-link class="nav-link" to="/product">
             All Product
             </router-link>
@@ -21,12 +21,10 @@
             </router-link>
           </li>
         </ul>
-        <div class="icon">
-          <div id="logout">
-            <a @click="$store.dispatch('signout')">
-              <i class="fas fa-sign-out-alt fa-lg"></i>Logout
-            </a>
-          </div>
+        <div id="signout">
+          <a @click="$store.dispatch('signout')">
+            <i class="fas fa-sign-out-alt fa-lg"></i>Sign Out
+          </a>
         </div>
       </div>
     </nav>
@@ -39,11 +37,16 @@ export default {
 }
 </script>
 <style scoped>
-.navbar {
+/* .navbar {
   position: fixed;
-  top: 0; /* Position the navbar at the top of the page */
+  top: 0;
   width: 100vw;
   z-index: 10000;
+} */
+
+.navbar-brand{
+  display: flex;
+  align-content: center;
 }
 
 .navbar-brand img{
@@ -52,33 +55,42 @@ export default {
 
 #navbarToggle ul li {
   font-size: 20px;
+  margin-right: 13px;
 }
 
 #navbarToggle ul li:hover {
+  color: #f96816;
   transition: .5s;
-  transform: scale(1.10);
+  transform: scale(1.15);
 }
 
-.icon {
+#signout {
+  height: 80%;
+  padding-left: 30px;
+  border-left: 1px solid #b3b3b3;
+  color: #646666;
+  cursor: pointer;
   display: flex;
+  align-items: center;
 }
 
-.icon i {
-  color: rgb(44, 42, 42);
-  margin-right: 5px;
+#signout a{
+  display: flex;
+  align-items: center;
 }
 
-#logout {
-  margin-right: 20px;
+#signout a i{
+  margin-right: 10px;
 }
 
-#logout:hover {
+#signout a:hover {
+  color: #f96816;
   transition: .5s;
-  transform: scale(1.25);
+  transform: scale(1.15);
 }
 
 .nav-link{
+  font-size: 17px;
   padding: 0;
-  color:  rgb(44, 42, 42);
 }
 </style>

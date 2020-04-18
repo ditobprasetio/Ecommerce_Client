@@ -33,7 +33,7 @@ export default new Vuex.Store({
       const password = payload.password
       return axios({
         method: 'POST',
-        url: 'http://localhost:3000/admin/signin',
+        url: 'https://powerful-lake-70062.herokuapp.com/admin/signin',
         data: {
           email, password
         }
@@ -46,7 +46,7 @@ export default new Vuex.Store({
     fecthProduct (context, payload) {
       axios({
         method: 'GET',
-        url: 'http://localhost:3000/product',
+        url: 'https://powerful-lake-70062.herokuapp.com/product',
         headers: {
           token: localStorage.getItem('token')
         }
@@ -61,7 +61,7 @@ export default new Vuex.Store({
     deleteProduct (context, id) {
       return axios({
         method: 'delete',
-        url: `http://localhost:3000/product/${id}`,
+        url: `https://powerful-lake-70062.herokuapp.com/product/${id}`,
         headers: {
           token: localStorage.getItem('token')
         }
@@ -70,7 +70,7 @@ export default new Vuex.Store({
     addProduct (context, payload) {
       return axios({
         method: 'POST',
-        url: 'http://localhost:3000/product',
+        url: 'https://powerful-lake-70062.herokuapp.com/product',
         headers: {
           token: localStorage.getItem('token')
         },
@@ -86,7 +86,7 @@ export default new Vuex.Store({
     getProduct (context, id) {
       return axios({
         method: 'GET',
-        url: `http://localhost:3000/product/${id}`,
+        url: `https://powerful-lake-70062.herokuapp.com/product/${id}`,
         headers: {
           token: localStorage.getItem('token')
         }
@@ -95,7 +95,7 @@ export default new Vuex.Store({
     updateProduct (context, payload) {
       return axios({
         method: 'PUT',
-        url: `http://localhost:3000/product/${payload.id}`,
+        url: `https://powerful-lake-70062.herokuapp.com/product/${payload.id}`,
         headers: {
           token: localStorage.getItem('token')
         },

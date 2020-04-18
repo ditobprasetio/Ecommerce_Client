@@ -38,14 +38,7 @@
               >
             </div>
           </div>
-          <div class="option">
-            <p>Dont have an account? <a id="join-btn">Join Us</a></p>
-          </div>
           <input type="submit" class="btn" value="signin">
-          <h6>Or you can use:</h6>
-          <div id="gsignin" style="display: flex; justify-content: center; margin-top: 20px;">
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
-          </div>
         </form>
       </div>
     </div>

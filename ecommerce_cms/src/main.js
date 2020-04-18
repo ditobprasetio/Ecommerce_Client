@@ -4,6 +4,12 @@ import router from './router'
 import store from './store'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Toasted from 'vue-toasted'
+
+Vue.use(Toasted, {
+  theme: 'bubble',
+  position: 'top-center'
+})
 
 Vue.config.productionTip = false
 

@@ -7,14 +7,27 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    products: []
+    products: [],
+    username: '',
+    email: ''
   },
   mutations: {
     SET_PRODUCT (state, payload) {
       state.products = payload
+    },
+    SET_DATA (state, payload) {
+      state.username = payload.username
+      state.email = payload.email
     }
   },
   actions: {
+    getData (context, payload) {
+      const data = {
+        username: localStorage.name,
+        email: localStorage.email
+      }
+      context.commit('SET_DATA', data)
+    },
     signin (context, payload) {
       const email = payload.email
       const password = payload.password
@@ -63,9 +76,10 @@ export default new Vuex.Store({
         },
         data: {
           name: payload.name,
-          price: payload.price,
           stock: payload.stock,
-          image: payload.image
+          price: payload.price,
+          category: payload.category,
+          image_Url: payload.image_Url
         }
       })
     },

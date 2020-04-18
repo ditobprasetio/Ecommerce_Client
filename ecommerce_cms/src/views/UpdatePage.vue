@@ -59,7 +59,7 @@
                   placeholder="Enter Image"
                 />
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="secondary-btn">Submit</button>
             </form>
           </div>
         </div>
@@ -160,5 +160,24 @@ export default {
 
 .card{
   border: none;
+}
+
+.secondary-btn {
+  padding: 0.7rem 1rem;
+  height: 2.7rem;
+  display: block;
+  border: 1px solid #535353;
+  border-radius: 2px;
+  font-weight: 500;
+  background: none;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.secondary-btn:hover {
+  border-color: #ff7b39;
+  color: #ff7b39;
 }
 </style>

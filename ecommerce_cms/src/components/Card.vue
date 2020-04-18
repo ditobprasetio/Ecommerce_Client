@@ -34,7 +34,12 @@ export default {
   methods: {
     deleteProduct: function (id) {
       this.$store.dispatch('deleteProduct', id)
-      this.$store.dispatch('fecthProduct')
+        .then(_ => {
+          this.$store.dispatch('fecthProduct')
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
     toEditPage: function (id) {
       this.$router.push(`/product/edit/${id}`)

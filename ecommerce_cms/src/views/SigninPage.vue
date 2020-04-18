@@ -72,7 +72,15 @@ export default {
           localStorage.setItem('token', result.data.token)
           localStorage.setItem('name', result.data.name)
           localStorage.setItem('email', result.data.email)
+          this.$toasted.show(`Glad to see you back ${localStorage.name}!`, {
+            duration: 3000
+          })
           this.$router.push({ path: 'product' })
+        })
+        .catch(err => {
+          this.$toasted.show(err.response.data.errors[0], {
+            duration: 3000
+          })
         })
     }
   }

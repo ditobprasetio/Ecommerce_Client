@@ -3,14 +3,19 @@
     <div id="product">
       <div class="product-container">
         <div class="card-deck row detail">
-          <div class="card col-md-6 col-sm-12 col-xs-12 segment-one">
-            <h1>nama admin</h1>
+          <div class="card row col-md-6 col-sm-12 col-xs-12 segment-one">
+            <div class="col-md-6 col-sm-12 col-xs-12  profile">
+              <h3>{{ username }}</h3>
+              <p>{{ email }}</p>
+            </div>
           </div>
           <div class="card col-md-3 col-sm-12 col-xs-12 segment-two">
-            <h1>jumlah product</h1>
+            <p>Total Products</p>
+            <h1>{{ products.length }}</h1>
           </div>
           <div class="card col-md-3 col-sm-12 col-xs-12 segment-three">
-            <h1>jumlah category</h1>
+            <p>Total Category</p>
+            <h1>4</h1>
           </div>
         </div>
         <div class="product-list">
@@ -73,10 +78,17 @@ export default {
   computed: {
     products () {
       return this.$store.state.products
+    },
+    username () {
+      return this.$store.state.username
+    },
+    email () {
+      return this.$store.state.email
     }
   },
   created () {
     this.$store.dispatch('fecthProduct')
+    this.$store.dispatch('getData')
   }
 }
 </script>
@@ -109,10 +121,38 @@ export default {
 
 .detail .segment-one {
   margin-left: 0;
+  /* display: flex; */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.detail .segment-two,
+.detail .segment-three{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.profile{
+  width: 75%;
+  /* padding: 0; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.profile p{
+  margin: 0;
 }
 
 .detail .segment-three {
   margin-right: 0;
+}
+
+.segment-two p,
+.segment-three p{
+  font-size: larger;
 }
 
 .card {
@@ -141,6 +181,14 @@ export default {
 .product-list h4{
   padding-top: 15px;
   padding-left: 15px;
+}
+
+.segment-two p::before,
+.segment-three p::before,
+.product-list h4::before{
+  content: '|';
+  color: #c65039;
+  padding-right: 10px;
 }
 
 .image,

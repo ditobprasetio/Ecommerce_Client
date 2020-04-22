@@ -62,9 +62,9 @@ export default {
       }
       this.$store.dispatch('signin', data)
         .then((result) => {
-          localStorage.setItem('token', result.data.token)
           localStorage.setItem('name', result.data.name)
           localStorage.setItem('email', result.data.email)
+          localStorage.setItem('token', result.data.token)
           this.$toasted.show(`Glad to see you back ${localStorage.name}!`, {
             duration: 3000
           })

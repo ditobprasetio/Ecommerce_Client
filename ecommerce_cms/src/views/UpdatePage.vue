@@ -91,11 +91,16 @@ export default {
         id: this.$route.params.id
       }
       this.$store.dispatch('updateProduct', productData)
-        .then(_ => {
+        .then(({ data }) => {
+          this.$toasted.show(`Success update Product ${data.name}`, {
+            duration: 3000
+          })
           this.$router.push('/product')
         })
         .catch(err => {
-          console.log(err)
+          this.$toasted.show(err.response.data.errors[0], {
+            duration: 3000
+          })
         })
     }
   },

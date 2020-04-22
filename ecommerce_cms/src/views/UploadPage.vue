@@ -90,11 +90,16 @@ export default {
         image_Url: this.image_Url
       }
       this.$store.dispatch('addProduct', productData)
-        .then(_ => {
+        .then(({ data }) => {
+          this.$toasted.show(`Success Add Product ${data.name}`, {
+            duration: 3000
+          })
           this.$router.push('/product')
         })
         .catch((err) => {
-          console.log(err)
+          this.$toasted.show(err.response.data.errors[0], {
+            duration: 3000
+          })
         })
     }
   }

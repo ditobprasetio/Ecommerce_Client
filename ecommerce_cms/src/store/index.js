@@ -5,6 +5,9 @@ import router from '../router/index'
 
 Vue.use(Vuex)
 
+// const baseUrl = 'http://localhost:3000'
+const baseUrl = 'https://powerful-lake-70062.herokuapp.com'
+
 export default new Vuex.Store({
   state: {
     products: [],
@@ -33,7 +36,7 @@ export default new Vuex.Store({
       const password = payload.password
       return axios({
         method: 'POST',
-        url: 'https://powerful-lake-70062.herokuapp.com/admin/signin',
+        url: `${baseUrl}/admin/signin`,
         data: {
           email, password
         }
@@ -46,7 +49,7 @@ export default new Vuex.Store({
     fecthProduct (context, payload) {
       axios({
         method: 'GET',
-        url: 'https://powerful-lake-70062.herokuapp.com/product',
+        url: `${baseUrl}/product`,
         headers: {
           token: localStorage.getItem('token')
         }
@@ -61,7 +64,7 @@ export default new Vuex.Store({
     deleteProduct (context, id) {
       return axios({
         method: 'delete',
-        url: `https://powerful-lake-70062.herokuapp.com/product/${id}`,
+        url: `${baseUrl}/product/${id}`,
         headers: {
           token: localStorage.getItem('token')
         }
@@ -70,7 +73,7 @@ export default new Vuex.Store({
     addProduct (context, payload) {
       return axios({
         method: 'POST',
-        url: 'https://powerful-lake-70062.herokuapp.com/product',
+        url: `${baseUrl}/product`,
         headers: {
           token: localStorage.getItem('token')
         },
@@ -86,7 +89,7 @@ export default new Vuex.Store({
     getProduct (context, id) {
       return axios({
         method: 'GET',
-        url: `https://powerful-lake-70062.herokuapp.com/product/${id}`,
+        url: `${baseUrl}/product/${id}`,
         headers: {
           token: localStorage.getItem('token')
         }
@@ -95,7 +98,7 @@ export default new Vuex.Store({
     updateProduct (context, payload) {
       return axios({
         method: 'PUT',
-        url: `https://powerful-lake-70062.herokuapp.com/product/${payload.id}`,
+        url: `${baseUrl}/product/${payload.id}`,
         headers: {
           token: localStorage.getItem('token')
         },

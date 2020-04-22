@@ -34,11 +34,16 @@ export default {
   methods: {
     deleteProduct: function (id) {
       this.$store.dispatch('deleteProduct', id)
-        .then(_ => {
+        .then(({ data }) => {
           this.$store.dispatch('fecthProduct')
+          this.$toasted.show(`${data.message}`, {
+            duration: 3000
+          })
         })
         .catch((err) => {
-          console.log(err)
+          this.$toasted.show(err.response.data.errors[0], {
+            duration: 3000
+          })
         })
     },
     toEditPage: function (id) {

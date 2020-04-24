@@ -12,7 +12,8 @@ export default new Vuex.Store({
   state: {
     products: [],
     username: '',
-    email: ''
+    email: '',
+    isLoading: false
   },
   mutations: {
     SET_PRODUCT (state, payload) {
@@ -21,6 +22,9 @@ export default new Vuex.Store({
     SET_DATA (state, payload) {
       state.username = payload.username
       state.email = payload.email
+    },
+    SET_LOADING (state, payload) {
+      state.isLoading = payload
     }
   },
   actions: {
@@ -47,6 +51,7 @@ export default new Vuex.Store({
       router.push({ path: '/' })
     },
     fecthProduct (context, payload) {
+      context.commit('SET_LOADING', true)
       axios({
         method: 'GET',
         url: `${baseUrl}/product`,
@@ -59,6 +64,9 @@ export default new Vuex.Store({
         })
         .catch(err => {
           console.log(err)
+        })
+        .finally(_ => {
+          context.commit('SET_LOADING', false)
         })
     },
     deleteProduct (context, id) {

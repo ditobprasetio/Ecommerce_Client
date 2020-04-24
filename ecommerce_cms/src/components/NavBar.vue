@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <router-link to="/" class="navbar-brand">
-        <img src="../assets/icn.png" />
+        <img src="../assets/icn.jpg" />Neko Pawrtal
       </router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,11 +46,13 @@ export default {
 
 .navbar-brand{
   display: flex;
-  align-content: center;
+  align-items: center;
+  font-family: 'Gochi Hand', cursive;
 }
 
 .navbar-brand img{
   width: 60px;
+  margin-right: 15px;
 }
 
 #navbarToggle ul li {

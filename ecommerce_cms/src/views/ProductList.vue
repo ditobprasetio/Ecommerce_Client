@@ -59,8 +59,9 @@
               </div>
             </div>
           </div>
+          <Loading v-if="isLoading"/>
           <!-- card -->
-          <Card v-for="product in products" :key="product.id" :product="product" />
+          <Card v-else v-for="product in products" :key="product.id" :product="product" />
           <!-- ---- -->
         </div>
       </div>
@@ -70,10 +71,13 @@
 
 <script>
 import Card from '../components/Card'
+import Loading from '../components/LoadingPage'
+
 export default {
   name: 'ProductList',
   components: {
-    Card
+    Card,
+    Loading
   },
   computed: {
     products () {
@@ -84,6 +88,9 @@ export default {
     },
     email () {
       return this.$store.state.email
+    },
+    isLoading: function () {
+      return this.$store.state.isLoading
     }
   },
   created () {
